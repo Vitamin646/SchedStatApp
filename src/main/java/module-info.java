@@ -9,6 +9,12 @@ module org.example.schedstatapp {
 	requires org.kordamp.bootstrapfx.core;
 	requires eu.hansolo.tilesfx;
 
-	opens org.example.schedstatapp to javafx.fxml;
-	exports org.example.schedstatapp;
+	requires java.prefs;
+
+
+	exports org.example.schedstatapp.app;
+	opens org.example.schedstatapp.app to javafx.fxml;
+
+	exports org.example.schedstatapp.controller;
+	opens org.example.schedstatapp.controller to javafx.fxml;
 }

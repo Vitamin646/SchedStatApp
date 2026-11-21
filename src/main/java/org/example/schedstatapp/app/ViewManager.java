@@ -1,9 +1,10 @@
-package org.example.schedstatapp;
+package org.example.schedstatapp.app;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.schedstatapp.controller.Refreshable;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +12,19 @@ import java.util.Map;
 public class ViewManager {
 	private static final ViewManager instance = new ViewManager();
 
-	// Здесь мы храним загруженные экраны. Ключ - имя файла, Значение - корневой узел (Parent)
-	private final Map<String, Parent> cachedViews = new HashMap<>();
+	private final Map<String, ViewData> cachedViews = new HashMap<>();
 
-	// Сохраняем ссылку на главное окно
 	private Stage mainStage;
+
+	private static class ViewData {
+		Parent root;
+		Object controller;
+
+		ViewData(Parent root, Object controller) {
+			this.root = root;
+			this.controller = controller;
+		}
+	}
 
 	private ViewManager() {}
 
@@ -23,24 +32,30 @@ public class ViewManager {
 		return instance;
 	}
 
-	// Вызывается один раз при старте приложения в Main.java
 	public void setMainStage(Stage stage) {
 		this.mainStage = stage;
 	}
 
 	public void switchView(String fxmlFileName) {
 		try {
-			Parent view;
+			ViewData viewData;
 
 			if (cachedViews.containsKey(fxmlFileName)) {
-				view = cachedViews.get(fxmlFileName);
+				viewData = cachedViews.get(fxmlFileName);
 			} else {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));
-				view = loader.load();
-				cachedViews.put(fxmlFileName, view);
+				Parent root = loader.load();
+				Object controller = loader.getController();
+
+				viewData = new ViewData(root, controller);
+				cachedViews.put(fxmlFileName, viewData);
 			}
 
-			mainStage.getScene().setRoot(view);
+			mainStage.getScene().setRoot(viewData.root);
+
+			if (viewData.controller instanceof Refreshable) {
+				((Refreshable) viewData.controller).updateUI();
+			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
