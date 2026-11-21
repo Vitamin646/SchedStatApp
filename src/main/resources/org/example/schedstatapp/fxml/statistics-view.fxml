@@ -2,12 +2,10 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.HBox?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.schedstatapp.controller.StatisticsController">
@@ -16,23 +14,18 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label text="Статистика тренировок" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label text="Workout statistics" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-    <!-- График -->
-    <BarChart fx:id="workoutChart" title="Минуты тренировок по дням недели" legendSide="TOP">
+    <!-- Chart -->
+    <BarChart fx:id="workoutChart" title="Workout minutes by day of week" legendSide="TOP">
         <xAxis>
-            <CategoryAxis label="День недели" />
+            <CategoryAxis label="Day of week" />
         </xAxis>
         <yAxis>
-            <NumberAxis label="Минуты" />
+            <NumberAxis label="Minutes" />
         </yAxis>
     </BarChart>
 
-    <Label fx:id="totalTimeLabel" text="Всего времени: 0 часов" style="-fx-font-size: 14px;" />
-
-    <HBox alignment="CENTER_LEFT" spacing="10.0">
-        <Button text="Назад к календарю" onAction="#onCalendarButtonClick"/>
-        <Button text="Home" onAction="#onHomeButtonClick"/>
-    </HBox>
+    <Label fx:id="totalTimeLabel" text="Total time: 0 hours" style="-fx-font-size: 14px;" />
 
 </VBox>

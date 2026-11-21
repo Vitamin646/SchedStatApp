@@ -4,9 +4,9 @@ import org.example.schedstatapp.controller.*;
 
 public enum ViewType {
 	HOME(PathBuilder.buildPath("home-view"), HomeController.class, "Home"),
-	SETTINGS(PathBuilder.buildPath("settings-view"), SettingsController.class, "Settings"),
 	CALENDAR(PathBuilder.buildPath("calendar-view"), CalendarController.class, "Calendar"),
-	STATISTICS(PathBuilder.buildPath("statistics-view"), StatisticsController.class, "Statistics");
+	STATISTICS(PathBuilder.buildPath("statistics-view"), StatisticsController.class, "Statistics"),
+	SETTINGS(PathBuilder.buildPath("settings-view"), SettingsController.class, "Settings");
 
 	private final String fxmlPath;
 	private final Class<?> controllerClass;

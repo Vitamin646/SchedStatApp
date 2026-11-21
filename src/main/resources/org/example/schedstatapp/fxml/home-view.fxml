@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.schedstatapp.controller.HomeController">
     <padding>
@@ -12,11 +11,4 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-
-    <Label fx:id="exampleLabel"/>
-    <Button text="example!" onAction="#onExampleButtonClick"/>
-
-    <Button text="Настройки" onAction="#onSettingsButtonClick"/>
-    <Button text="Calendar" onAction="#onCalendarButtonClick"/>
 </VBox>

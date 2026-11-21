@@ -1,21 +1,29 @@
 package org.example.schedstatapp.app;
 
+import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.example.schedstatapp.controller.Refreshable;
 import org.example.schedstatapp.util.ViewType;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ViewManager {
+	private static final String NAVIGATION_BAR_FXML = "/org/example/schedstatapp/fxml/navigation-bar.fxml";
+
 	private static final ViewManager instance = new ViewManager();
 
 	private final Map<ViewType, ViewData> cachedViews = new HashMap<>();
+	private final ReadOnlyObjectWrapper<ViewType> currentView = new ReadOnlyObjectWrapper<>();
 
 	private Stage mainStage;
+	private BorderPane shell;
 
 	private static class ViewData {
 		Parent root;
@@ -33,8 +41,19 @@ public class ViewManager {
 		return instance;
 	}
 
+	/**
+	 * Sets the main stage and installs the application shell as the root of its scene:
+	 * the shared navigation bar on top and the current view in the center.
+	 */
 	public void setMainStage(Stage stage) {
 		this.mainStage = stage;
+		this.shell = createShell();
+		stage.getScene().setRoot(shell);
+	}
+
+	/** The view that is currently shown, or {@code null} before the first switch. */
+	public ReadOnlyObjectProperty<ViewType> currentViewProperty() {
+		return currentView.getReadOnlyProperty();
 	}
 
 	public void switchView(ViewType viewType) {
@@ -50,9 +69,9 @@ public class ViewManager {
 
 				if (!viewType.getControllerClass().isInstance(controller)) {
 					throw new RuntimeException(
-							"Ошибка: FXML " + viewType.getFxmlPath() +
-							" привязан к " + controller.getClass().getSimpleName() +
-							", но ожидался " + viewType.getControllerClass().getSimpleName()
+							"Error: FXML " + viewType.getFxmlPath() +
+							" is bound to " + controller.getClass().getSimpleName() +
+							", but " + viewType.getControllerClass().getSimpleName() + " was expected"
 					);
 				}
 
@@ -60,8 +79,9 @@ public class ViewManager {
 				cachedViews.put(viewType, viewData);
 			}
 
-			mainStage.getScene().setRoot(viewData.root);
+			shell.setCenter(viewData.root);
 			mainStage.setTitle(viewType.getTitle());
+			currentView.set(viewType);
 
 			if (viewData.controller instanceof Refreshable) {
 				((Refreshable) viewData.controller).updateUI();
@@ -69,7 +89,18 @@ public class ViewManager {
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.err.println("Не удалось загрузить экран: " + viewType.getFxmlPath());
+			System.err.println("Failed to load view: " + viewType.getFxmlPath());
+		}
+	}
+
+	private BorderPane createShell() {
+		try {
+			Parent navigationBar = new FXMLLoader(getClass().getResource(NAVIGATION_BAR_FXML)).load();
+			BorderPane pane = new BorderPane();
+			pane.setTop(navigationBar);
+			return pane;
+		} catch (IOException e) {
+			throw new UncheckedIOException("Failed to load navigation bar: " + NAVIGATION_BAR_FXML, e);
 		}
 	}
 }
