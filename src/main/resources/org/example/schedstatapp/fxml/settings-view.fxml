@@ -18,6 +18,4 @@
     <CheckBox fx:id="welcomeCheckBox" text="Показывать приветствие на главном экране"/>
 
     <Button text="Сохранить настройки" onAction="#onSaveButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
-
-    <Button text="На главную" onAction="#onHomeButtonClick"/>
 </VBox>

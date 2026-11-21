@@ -2,9 +2,7 @@ package org.example.schedstatapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
-import org.example.schedstatapp.app.ViewManager;
 import org.example.schedstatapp.util.AppSettings;
-import org.example.schedstatapp.util.ViewType;
 
 public class SettingsController extends BaseController {
 	@FXML
@@ -22,10 +20,5 @@ public class SettingsController extends BaseController {
 		AppSettings.setShowWelcomeText(newValue);
 
 		System.out.println("Settings saved: " + newValue);
-	}
-
-	@FXML
-	protected void onHomeButtonClick() {
-		ViewManager.getInstance().switchView(ViewType.HOME);
 	}
 }

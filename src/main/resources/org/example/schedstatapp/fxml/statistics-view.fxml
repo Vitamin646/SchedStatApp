@@ -2,12 +2,10 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.HBox?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.schedstatapp.controller.StatisticsController">
@@ -29,10 +27,5 @@
     </BarChart>
 
     <Label fx:id="totalTimeLabel" text="Всего времени: 0 часов" style="-fx-font-size: 14px;" />
-
-    <HBox alignment="CENTER_LEFT" spacing="10.0">
-        <Button text="Назад к календарю" onAction="#onCalendarButtonClick"/>
-        <Button text="Home" onAction="#onHomeButtonClick"/>
-    </HBox>
 
 </VBox>

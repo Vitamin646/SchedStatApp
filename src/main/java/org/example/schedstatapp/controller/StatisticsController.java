@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-import org.example.schedstatapp.app.ViewManager;
-import org.example.schedstatapp.util.ViewType;
 
 public class StatisticsController extends BaseController {
 	@FXML
@@ -24,15 +22,5 @@ public class StatisticsController extends BaseController {
 		series.getData().add(new XYChart.Data<>("Пт", 30));
 
 		workoutChart.getData().add(series);
-	}
-
-	@FXML
-	protected void onCalendarButtonClick() {
-		ViewManager.getInstance().switchView(ViewType.CALENDAR);
-	}
-
-	@FXML
-	public void onHomeButtonClick() {
-		ViewManager.getInstance().switchView(ViewType.HOME);
 	}
 }

@@ -2,9 +2,7 @@ package org.example.schedstatapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.example.schedstatapp.app.ViewManager;
 import org.example.schedstatapp.util.AppSettings;
-import org.example.schedstatapp.util.ViewType;
 
 public class HomeController extends BaseController {
 	@FXML
@@ -25,15 +23,5 @@ public class HomeController extends BaseController {
 		if (showWelcome) {
 			welcomeText.setText("Добро пожаловать в JavaFX!");
 		}
-	}
-
-	@FXML
-	protected void onSettingsButtonClick() {
-		ViewManager.getInstance().switchView(ViewType.SETTINGS);
-	}
-
-	@FXML
-	public void onCalendarButtonClick() {
-		ViewManager.getInstance().switchView(ViewType.CALENDAR);
 	}
 }
