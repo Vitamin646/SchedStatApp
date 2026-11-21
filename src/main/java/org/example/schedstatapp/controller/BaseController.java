@@ -1,15 +1,15 @@
 package org.example.schedstatapp.controller;
 
 /**
- * Базовый класс для всех контроллеров в приложении.
- * Реализует Refreshable, чтобы ViewManager мог обновлять экраны.
+ * Base class for all controllers in the application.
+ * Implements Refreshable so that ViewManager can refresh views.
  */
 public abstract class BaseController implements Refreshable {
 	@Override
 	public void updateUI() {}
 
 	protected void showNotification(String message) {
-		System.out.println("Уведомление: " + message);
-		// В будущем здесь можно использовать ControlsFX Notifications
+		System.out.println("Notification: " + message);
+		// ControlsFX Notifications can be used here in the future
 	}
 }

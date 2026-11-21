@@ -21,7 +21,7 @@ public class HomeController extends BaseController {
 		welcomeText.setManaged(showWelcome);
 
 		if (showWelcome) {
-			welcomeText.setText("Добро пожаловать в JavaFX!");
+			welcomeText.setText("Welcome to JavaFX!");
 		}
 	}
 }

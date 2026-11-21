@@ -1,8 +1,8 @@
 package org.example.schedstatapp.controller;
 
 /**
- * Интерфейс для контроллеров, которые должны обновлять
- * свое состояние (UI) каждый раз, когда экран показывается пользователю.
+ * Interface for controllers that must refresh their state (UI)
+ * every time their view is shown to the user.
  */
 public interface Refreshable {
 	void updateUI();

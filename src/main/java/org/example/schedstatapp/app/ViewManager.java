@@ -69,9 +69,9 @@ public class ViewManager {
 
 				if (!viewType.getControllerClass().isInstance(controller)) {
 					throw new RuntimeException(
-							"Ошибка: FXML " + viewType.getFxmlPath() +
-							" привязан к " + controller.getClass().getSimpleName() +
-							", но ожидался " + viewType.getControllerClass().getSimpleName()
+							"Error: FXML " + viewType.getFxmlPath() +
+							" is bound to " + controller.getClass().getSimpleName() +
+							", but " + viewType.getControllerClass().getSimpleName() + " was expected"
 					);
 				}
 
@@ -89,7 +89,7 @@ public class ViewManager {
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.err.println("Не удалось загрузить экран: " + viewType.getFxmlPath());
+			System.err.println("Failed to load view: " + viewType.getFxmlPath());
 		}
 	}
 

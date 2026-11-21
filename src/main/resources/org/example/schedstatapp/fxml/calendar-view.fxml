@@ -9,7 +9,7 @@
             fx:controller="org.example.schedstatapp.controller.CalendarController">
 
     <top>
-        <Label text="Мой календарь тренировок" style="-fx-font-size: 18px; -fx-padding: 10px;"/>
+        <Label text="My workout calendar" style="-fx-font-size: 18px; -fx-padding: 10px;"/>
     </top>
 
     <center>

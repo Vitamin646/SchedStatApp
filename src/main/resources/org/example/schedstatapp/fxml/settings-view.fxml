@@ -13,9 +13,9 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label text="Экран настроек" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label text="Settings" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-    <CheckBox fx:id="welcomeCheckBox" text="Показывать приветствие на главном экране"/>
+    <CheckBox fx:id="welcomeCheckBox" text="Show welcome message on the home screen"/>
 
-    <Button text="Сохранить настройки" onAction="#onSaveButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    <Button text="Save settings" onAction="#onSaveButtonClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
 </VBox>
