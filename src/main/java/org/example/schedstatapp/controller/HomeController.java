@@ -11,9 +11,6 @@ public class HomeController extends BaseController {
 	private Label welcomeText;
 
 	@FXML
-	private Label exampleLabel;
-
-	@FXML
 	public void initialize() {
 		updateUI();
 	}
@@ -28,16 +25,6 @@ public class HomeController extends BaseController {
 		if (showWelcome) {
 			welcomeText.setText("Добро пожаловать в JavaFX!");
 		}
-	}
-
-	@FXML
-	protected void onHelloButtonClick() {
-		welcomeText.setText("Welcome to JavaFX Application!");
-	}
-
-	@FXML
-	protected void onExampleButtonClick() {
-		exampleLabel.setText("Example TEXT EA!!");
 	}
 
 	@FXML
