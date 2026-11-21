@@ -17,4 +17,7 @@ module org.example.schedstatapp {
 
 	exports org.example.schedstatapp.controller;
 	opens org.example.schedstatapp.controller to javafx.fxml;
+
+	exports org.example.schedstatapp.util;
+	opens org.example.schedstatapp.util to javafx.fxml;
 }

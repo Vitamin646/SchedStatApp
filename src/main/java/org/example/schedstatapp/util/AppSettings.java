@@ -1,4 +1,4 @@
-package org.example.schedstatapp.utils;
+package org.example.schedstatapp.util;
 
 import java.util.prefs.Preferences;
 

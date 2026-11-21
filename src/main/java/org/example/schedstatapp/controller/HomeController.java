@@ -3,7 +3,8 @@ package org.example.schedstatapp.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.example.schedstatapp.app.ViewManager;
-import org.example.schedstatapp.utils.AppSettings;
+import org.example.schedstatapp.util.AppSettings;
+import org.example.schedstatapp.util.ViewType;
 
 public class HomeController extends BaseController {
 	@FXML
@@ -41,6 +42,6 @@ public class HomeController extends BaseController {
 
 	@FXML
 	protected void onSettingsButtonClick() {
-		ViewManager.getInstance().switchView("/org/example/schedstatapp/fxml/settings-view.fxml");
+		ViewManager.getInstance().switchView(ViewType.SETTINGS);
 	}
 }
