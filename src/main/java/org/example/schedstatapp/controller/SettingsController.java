@@ -28,7 +28,7 @@ public class SettingsController extends BaseController {
 		boolean newValue = welcomeCheckBox.isSelected();
 		AppSettings.setShowWelcomeText(newValue);
 
-		System.out.println("Настройки сохранены: " + newValue);
+		System.out.println("Settings saved: " + newValue);
 	}
 
 	@FXML

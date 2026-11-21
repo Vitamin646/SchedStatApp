@@ -18,4 +18,5 @@
     <Button text="example!" onAction="#onExampleButtonClick"/>
 
     <Button text="Настройки" onAction="#onSettingsButtonClick"/>
+    <Button text="Calendar" onAction="#onCalendarButtonClick"/>
 </VBox>

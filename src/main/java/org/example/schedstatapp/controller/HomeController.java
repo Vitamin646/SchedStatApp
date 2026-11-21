@@ -44,4 +44,9 @@ public class HomeController extends BaseController {
 	protected void onSettingsButtonClick() {
 		ViewManager.getInstance().switchView(ViewType.SETTINGS);
 	}
+
+	@FXML
+	public void onCalendarButtonClick() {
+		ViewManager.getInstance().switchView(ViewType.CALENDAR);
+	}
 }
