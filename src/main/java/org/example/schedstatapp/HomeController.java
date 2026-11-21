@@ -3,12 +3,12 @@ package org.example.schedstatapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class HomeController {
 	@FXML
 	private Label welcomeText;
 
 	@FXML
-	private Label exampleButton;
+	private Label exampleLabel;
 
 	@FXML
 	protected void onHelloButtonClick() {
@@ -17,6 +17,11 @@ public class HelloController {
 
 	@FXML
 	protected void onExampleButtonClick() {
-		exampleButton.setText("Example TEXT EA!!");
+		exampleLabel.setText("Example TEXT EA!!");
+	}
+
+	@FXML
+	protected void onSettingsButtonClick() {
+		ViewManager.getInstance().switchView("settings-view.fxml");
 	}
 }
