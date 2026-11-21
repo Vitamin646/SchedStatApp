@@ -1,4 +1,4 @@
-package org.example.schedstatapp.model;
+package io.github.vitamin646dev.schedstatapp.model;
 
 import java.time.LocalDate;
 

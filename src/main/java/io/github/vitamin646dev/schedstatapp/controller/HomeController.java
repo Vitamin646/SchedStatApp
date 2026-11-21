@@ -1,8 +1,8 @@
-package org.example.schedstatapp.controller;
+package io.github.vitamin646dev.schedstatapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.example.schedstatapp.util.AppSettings;
+import io.github.vitamin646dev.schedstatapp.util.AppSettings;
 
 public class HomeController extends BaseController {
 	@FXML

@@ -1,10 +1,10 @@
-package org.example.schedstatapp.app;
+package io.github.vitamin646dev.schedstatapp.app;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.example.schedstatapp.util.ViewType;
+import io.github.vitamin646dev.schedstatapp.util.ViewType;
 
 public class Main extends Application {
 

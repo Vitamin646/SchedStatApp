@@ -1,4 +1,4 @@
-package org.example.schedstatapp.controller;
+package io.github.vitamin646dev.schedstatapp.controller;
 
 import javafx.fxml.FXML;
 import com.calendarfx.view.CalendarView;

@@ -1,10 +1,10 @@
-package org.example.schedstatapp.controller;
+package io.github.vitamin646dev.schedstatapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import org.example.schedstatapp.app.ViewManager;
-import org.example.schedstatapp.util.ViewType;
+import io.github.vitamin646dev.schedstatapp.app.ViewManager;
+import io.github.vitamin646dev.schedstatapp.util.ViewType;
 
 import java.util.EnumMap;
 import java.util.Map;

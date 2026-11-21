@@ -1,4 +1,4 @@
-package org.example.schedstatapp.controller;
+package io.github.vitamin646dev.schedstatapp.controller;
 
 /**
  * Interface for controllers that must refresh their state (UI)

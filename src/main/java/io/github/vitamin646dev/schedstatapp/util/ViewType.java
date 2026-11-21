@@ -1,6 +1,9 @@
-package org.example.schedstatapp.util;
+package io.github.vitamin646dev.schedstatapp.util;
 
-import org.example.schedstatapp.controller.*;
+import io.github.vitamin646dev.schedstatapp.controller.CalendarController;
+import io.github.vitamin646dev.schedstatapp.controller.HomeController;
+import io.github.vitamin646dev.schedstatapp.controller.SettingsController;
+import io.github.vitamin646dev.schedstatapp.controller.StatisticsController;
 
 public enum ViewType {
 	HOME(PathBuilder.buildPath("home-view"), HomeController.class, "Home"),
@@ -23,7 +26,7 @@ public enum ViewType {
 	public String getTitle() { return title; }
 
 	private static class PathBuilder {
-		private static final String BASE = "/org/example/schedstatapp/fxml/";
+		private static final String BASE = "/io/github/vitamin646dev/schedstatapp/fxml/";
 		private static final String DOT_FXML = ".fxml";
 
 		private static String buildPath(String filename) {

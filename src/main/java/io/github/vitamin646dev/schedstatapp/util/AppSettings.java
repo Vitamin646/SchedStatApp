@@ -1,9 +1,9 @@
-package org.example.schedstatapp.util;
+package io.github.vitamin646dev.schedstatapp.util;
 
 import java.util.prefs.Preferences;
 
 public class AppSettings {
-	private static final Preferences prefs = Preferences.userRoot().node("org/example/schedstatapp");
+	private static final Preferences prefs = Preferences.userRoot().node("io/github/vitamin646dev/schedstatapp");
 
 	private static final String SHOW_WELCOME_KEY = "showWelcomeText";
 

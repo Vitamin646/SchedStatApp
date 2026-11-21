@@ -1,4 +1,4 @@
-module org.example.schedstatapp {
+module io.github.vitamin646dev.schedstatapp {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.web;
@@ -13,15 +13,15 @@ module org.example.schedstatapp {
 	requires java.prefs;
 
 
-	exports org.example.schedstatapp.app;
-	opens org.example.schedstatapp.app to javafx.fxml;
+	exports io.github.vitamin646dev.schedstatapp.app;
+	opens io.github.vitamin646dev.schedstatapp.app to javafx.fxml;
 
-	exports org.example.schedstatapp.controller;
-	opens org.example.schedstatapp.controller to javafx.fxml;
+	exports io.github.vitamin646dev.schedstatapp.controller;
+	opens io.github.vitamin646dev.schedstatapp.controller to javafx.fxml;
 
-	exports org.example.schedstatapp.model;
-	opens org.example.schedstatapp.model to javafx.fxml;
+	exports io.github.vitamin646dev.schedstatapp.model;
+	opens io.github.vitamin646dev.schedstatapp.model to javafx.fxml;
 
-	exports org.example.schedstatapp.util;
-	opens org.example.schedstatapp.util to javafx.fxml;
+	exports io.github.vitamin646dev.schedstatapp.util;
+	opens io.github.vitamin646dev.schedstatapp.util to javafx.fxml;
 }

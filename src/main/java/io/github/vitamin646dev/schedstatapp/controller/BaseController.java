@@ -1,4 +1,4 @@
-package org.example.schedstatapp.controller;
+package io.github.vitamin646dev.schedstatapp.controller;
 
 /**
  * Base class for all controllers in the application.

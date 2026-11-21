@@ -1,4 +1,4 @@
-package org.example.schedstatapp.app;
+package io.github.vitamin646dev.schedstatapp.app;
 
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.example.schedstatapp.controller.Refreshable;
-import org.example.schedstatapp.util.ViewType;
+import io.github.vitamin646dev.schedstatapp.controller.Refreshable;
+import io.github.vitamin646dev.schedstatapp.util.ViewType;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ViewManager {
-	private static final String NAVIGATION_BAR_FXML = "/org/example/schedstatapp/fxml/navigation-bar.fxml";
+	private static final String NAVIGATION_BAR_FXML = "/io/github/vitamin646dev/schedstatapp/fxml/navigation-bar.fxml";
 
 	private static final ViewManager instance = new ViewManager();
 
