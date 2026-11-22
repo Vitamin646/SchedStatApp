@@ -23,11 +23,10 @@ public class ViewManager {
 
 	private Stage mainStage;
 	private BorderPane shell;
-	private Callback<Class<?>, Object> controllerFactory; // Фабрика для DI
+	private Callback<Class<?>, Object> controllerFactory;
 
-	public ViewManager() {} // Теперь конструктор публичный
+	public ViewManager() {}
 
-	// Метод для передачи фабрики контроллеров из Main
 	public void setControllerFactory(Callback<Class<?>, Object> controllerFactory) {
 		this.controllerFactory = controllerFactory;
 	}
@@ -51,7 +50,6 @@ public class ViewManager {
 			} else {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource(viewType.getFxmlPath()));
 
-				// Применяем фабрику, чтобы контроллеры получали зависимости
 				if (controllerFactory != null) {
 					loader.setControllerFactory(controllerFactory);
 				}

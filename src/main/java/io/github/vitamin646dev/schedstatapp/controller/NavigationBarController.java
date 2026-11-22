@@ -21,17 +21,13 @@ public class NavigationBarController {
 	private final Map<ViewType, Button> buttons = new EnumMap<>(ViewType.class);
 	private final ViewManager viewManager;
 
-	// ViewManager внедряется через конструктор (Dependency Injection)
 	public NavigationBarController(ViewManager viewManager) {
 		this.viewManager = viewManager;
 	}
 
 	@FXML
 	public void initialize() {
-		// Убрали ViewManager.getInstance()! Используем поле this.viewManager
-
 		for (ViewType viewType : ViewType.values()) {
-			// Проверяем флаг navigable
 			if (!viewType.isNavigable()) {
 				continue;
 			}
