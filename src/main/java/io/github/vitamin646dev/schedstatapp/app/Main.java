@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+	private AppContext context;
+
 	@Override
 	public void start(Stage stage) {
-		AppContext context = new AppContext();
+		context = new AppContext();
 		ViewManager viewManager = context.viewManager();
 
 		Scene scene = new Scene(new StackPane(), 800, 600);
@@ -19,6 +21,13 @@ public class Main extends Application {
 		viewManager.switchView(ViewType.HOME);
 
 		stage.show();
+	}
+
+	@Override
+	public void stop() {
+		if (context != null) {
+			context.close();
+		}
 	}
 
 	public static void main(String[] args) {
