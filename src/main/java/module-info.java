@@ -28,6 +28,9 @@ module io.github.vitamin646dev.schedstatapp {
 	// Flyway finds migrations through the class loader, so the package must be open to everyone
 	opens io.github.vitamin646dev.schedstatapp.db.migration;
 
+	exports io.github.vitamin646dev.schedstatapp.repository;
+	exports io.github.vitamin646dev.schedstatapp.repository.sqlite;
+
 	exports io.github.vitamin646dev.schedstatapp.service;
 
 	exports io.github.vitamin646dev.schedstatapp.util;
