@@ -22,6 +22,8 @@ module io.github.vitamin646dev.schedstatapp {
 	exports io.github.vitamin646dev.schedstatapp.model;
 	opens io.github.vitamin646dev.schedstatapp.model to javafx.fxml;
 
+	exports io.github.vitamin646dev.schedstatapp.service;
+
 	exports io.github.vitamin646dev.schedstatapp.util;
 	opens io.github.vitamin646dev.schedstatapp.util to javafx.fxml;
 }
