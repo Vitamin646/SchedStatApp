@@ -5,8 +5,14 @@ import javafx.scene.control.Label;
 import io.github.vitamin646dev.schedstatapp.util.AppSettings;
 
 public class HomeController extends BaseController {
+	private final AppSettings settings;
+
 	@FXML
 	private Label welcomeText;
+
+	public HomeController(AppSettings settings) {
+		this.settings = settings;
+	}
 
 	@FXML
 	public void initialize() {
@@ -15,7 +21,7 @@ public class HomeController extends BaseController {
 
 	@Override
 	public void updateUI() {
-		boolean showWelcome = AppSettings.isShowWelcomeText();
+		boolean showWelcome = settings.isShowWelcomeText();
 
 		welcomeText.setVisible(showWelcome);
 		welcomeText.setManaged(showWelcome);
