@@ -15,9 +15,7 @@ public class HomeController extends BaseController {
 	}
 
 	@FXML
-	public void initialize() {
-		updateUI();
-	}
+	public void initialize() { }
 
 	@Override
 	public void updateUI() {
