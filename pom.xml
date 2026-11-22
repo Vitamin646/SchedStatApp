@@ -210,7 +210,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <argLine>--enable-native-access=ALL-UNNAMED</argLine>
+                    <argLine>--enable-native-access=ALL-UNNAMED -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -226,6 +226,8 @@
                             <options>
                                 <option>--enable-native-access=javafx.graphics</option>
                                 <option>--enable-native-access=ALL-UNNAMED</option>
+                                <option>-Dstdout.encoding=UTF-8</option>
+                                <option>-Dstderr.encoding=UTF-8</option>
                             </options>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
