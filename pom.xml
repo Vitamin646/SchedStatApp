@@ -28,7 +28,7 @@
 
         <!-- Storage -->
         <sqlite-jdbc.version>3.53.1.0</sqlite-jdbc.version>
-        <flyway.version>12.6.0</flyway.version>
+        <flyway.version>9.22.3</flyway.version>
 
         <!-- Logging Libraries -->
         <slf4j.version>2.0.9</slf4j.version>
