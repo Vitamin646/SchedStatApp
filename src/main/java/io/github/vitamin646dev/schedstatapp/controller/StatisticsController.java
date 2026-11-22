@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 
 public class StatisticsController extends BaseController {
 	@FXML
-	public Label totalTimeLabel;
+	private Label totalTimeLabel;
 
 	@FXML
 	private BarChart<String, Number> workoutChart;
