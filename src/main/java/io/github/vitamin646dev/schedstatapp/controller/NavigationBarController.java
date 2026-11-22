@@ -19,12 +19,23 @@ public class NavigationBarController {
 	private HBox navigationBar;
 
 	private final Map<ViewType, Button> buttons = new EnumMap<>(ViewType.class);
+	private final ViewManager viewManager;
+
+	// ViewManager внедряется через конструктор (Dependency Injection)
+	public NavigationBarController(ViewManager viewManager) {
+		this.viewManager = viewManager;
+	}
 
 	@FXML
 	public void initialize() {
-		ViewManager viewManager = ViewManager.getInstance();
+		// Убрали ViewManager.getInstance()! Используем поле this.viewManager
 
 		for (ViewType viewType : ViewType.values()) {
+			// Проверяем флаг navigable
+			if (!viewType.isNavigable()) {
+				continue;
+			}
+
 			Button button = new Button(viewType.getTitle());
 			button.setOnAction(event -> viewManager.switchView(viewType));
 			buttons.put(viewType, button);
