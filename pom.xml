@@ -11,10 +11,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>23</java.version>
+        <java.version>25</java.version>
 
         <!-- JavaFX and UI Libraries -->
-        <javafx.version>23.0.1</javafx.version>
+        <javafx.version>25.0.1</javafx.version>
         <controlsfx.version>11.2.1</controlsfx.version>
         <formsfx.version>11.6.0</formsfx.version>
         <ikonli.version>12.3.1</ikonli.version>
