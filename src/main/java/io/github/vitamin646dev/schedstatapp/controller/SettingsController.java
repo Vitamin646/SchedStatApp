@@ -1,5 +1,6 @@
 package io.github.vitamin646dev.schedstatapp.controller;
 
+import io.github.vitamin646dev.schedstatapp.service.NotificationService;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import io.github.vitamin646dev.schedstatapp.util.AppSettings;
@@ -19,6 +20,6 @@ public class SettingsController extends BaseController {
 		boolean newValue = welcomeCheckBox.isSelected();
 		AppSettings.setShowWelcomeText(newValue);
 
-		System.out.println("Settings saved: " + newValue);
+		NotificationService.show("Settings saved: " + newValue);
 	}
 }
