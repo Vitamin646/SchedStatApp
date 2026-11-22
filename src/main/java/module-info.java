@@ -11,6 +11,8 @@ module io.github.vitamin646dev.schedstatapp {
 	requires com.calendarfx.view;
 
 	requires java.prefs;
+	requires java.sql;
+	requires org.flywaydb.core;
 
 
 	exports io.github.vitamin646dev.schedstatapp.app;
@@ -21,6 +23,13 @@ module io.github.vitamin646dev.schedstatapp {
 
 	exports io.github.vitamin646dev.schedstatapp.model;
 	opens io.github.vitamin646dev.schedstatapp.model to javafx.fxml;
+
+	exports io.github.vitamin646dev.schedstatapp.db;
+	// Flyway finds migrations through the class loader, so the package must be open to everyone
+	opens io.github.vitamin646dev.schedstatapp.db.migration;
+
+	exports io.github.vitamin646dev.schedstatapp.repository;
+	exports io.github.vitamin646dev.schedstatapp.repository.sqlite;
 
 	exports io.github.vitamin646dev.schedstatapp.service;
 

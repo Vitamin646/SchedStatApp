@@ -3,6 +3,12 @@ package io.github.vitamin646dev.schedstatapp.app;
 import io.github.vitamin646dev.schedstatapp.controller.HomeController;
 import io.github.vitamin646dev.schedstatapp.controller.NavigationBarController;
 import io.github.vitamin646dev.schedstatapp.controller.SettingsController;
+import io.github.vitamin646dev.schedstatapp.db.Database;
+import io.github.vitamin646dev.schedstatapp.repository.ExerciseRepository;
+import io.github.vitamin646dev.schedstatapp.repository.WorkoutRepository;
+import io.github.vitamin646dev.schedstatapp.repository.sqlite.SqliteExerciseRepository;
+import io.github.vitamin646dev.schedstatapp.repository.sqlite.SqliteWorkoutRepository;
+import io.github.vitamin646dev.schedstatapp.service.BackgroundExecutor;
 import io.github.vitamin646dev.schedstatapp.service.ConsoleNotificationService;
 import io.github.vitamin646dev.schedstatapp.service.NotificationService;
 import io.github.vitamin646dev.schedstatapp.util.AppSettings;
@@ -15,11 +21,15 @@ import java.util.function.Supplier;
 /**
  * Composition root: the single place where application objects are created and wired together.
  */
-public class AppContext {
+public class AppContext implements AutoCloseable {
 
 	private final ViewManager viewManager = new ViewManager();
 	private final AppSettings settings = new AppSettings();
 	private final NotificationService notifications = new ConsoleNotificationService();
+	private final Database database = Database.open(Database.defaultFile());
+	private final ExerciseRepository exerciseRepository = new SqliteExerciseRepository(database);
+	private final WorkoutRepository workoutRepository = new SqliteWorkoutRepository(database);
+	private final BackgroundExecutor backgroundExecutor = new BackgroundExecutor();
 	private final Map<Class<?>, Supplier<Object>> controllers = new HashMap<>();
 
 	public AppContext() {
@@ -31,6 +41,23 @@ public class AppContext {
 
 	public ViewManager viewManager() {
 		return viewManager;
+	}
+
+	public ExerciseRepository exerciseRepository() {
+		return exerciseRepository;
+	}
+
+	public WorkoutRepository workoutRepository() {
+		return workoutRepository;
+	}
+
+	public BackgroundExecutor backgroundExecutor() {
+		return backgroundExecutor;
+	}
+
+	@Override
+	public void close() {
+		backgroundExecutor.close();
 	}
 
 	/**

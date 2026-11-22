@@ -25,9 +25,18 @@ and related metrics. Built mainly for personal / small-circle use.
 - `app` – entry point (`Main`), `AppContext` (composition root), `ViewManager`
 - `controller` – FXML controllers (receive dependencies through constructors)
 - `service` – application services (e.g. `NotificationService`)
-- `model` – domain model
+- `model` – domain model (`Workout`, `Exercise`, `ExerciseSet`, ...)
+- `db` – SQLite access and Flyway migrations (`src/main/resources/.../db/migration`)
+- `repository` – repository interfaces; `repository.sqlite` – plain JDBC implementations
 - `util` – settings and helpers (`AppSettings`, `ViewType`)
 - `src/main/resources/.../fxml` – views
+
+## Data storage
+
+Workouts and exercises are stored in a SQLite file at `~/.schedstatapp/schedstat.db`.
+The schema is created and upgraded automatically on startup by Flyway; to change it, add a
+new `V<n>__description.sql` migration, never edit an applied one. Database calls should run
+through `BackgroundExecutor`, not on the JavaFX thread.
 
 ## Roadmap decisions
 
