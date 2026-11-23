@@ -84,6 +84,6 @@ public class AppContext implements AutoCloseable {
 			} catch (Exception e) {
 				throw new RuntimeException("Failed to create controller: " + type.getName(), e);
 			}
-		}
+		};
 	}
 }
