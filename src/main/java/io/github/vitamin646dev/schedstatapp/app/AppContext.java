@@ -1,5 +1,6 @@
 package io.github.vitamin646dev.schedstatapp.app;
 
+import io.github.vitamin646dev.schedstatapp.controller.ExercisesController;
 import io.github.vitamin646dev.schedstatapp.controller.HomeController;
 import io.github.vitamin646dev.schedstatapp.controller.NavigationBarController;
 import io.github.vitamin646dev.schedstatapp.controller.SettingsController;
@@ -35,6 +36,8 @@ public class AppContext implements AutoCloseable {
 	public AppContext() {
 		controllers.put(NavigationBarController.class, () -> new NavigationBarController(viewManager));
 		controllers.put(HomeController.class, () -> new HomeController(settings));
+		controllers.put(ExercisesController.class,
+				() -> new ExercisesController(exerciseRepository, backgroundExecutor, notifications));
 		controllers.put(SettingsController.class, () -> new SettingsController(settings, notifications));
 		viewManager.setControllerFactory(controllerFactory());
 	}
