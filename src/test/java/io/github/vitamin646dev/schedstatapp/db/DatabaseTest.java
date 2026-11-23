@@ -43,18 +43,23 @@ class DatabaseTest {
 	void openingExistingDatabaseKeepsDataAndDoesNotFail() throws SQLException {
 		Path file = dir.resolve("test.db");
 		Database first = Database.open(file);
+		int seeded = countExercises(first);
 		try (Connection connection = first.connection();
 			 Statement statement = connection.createStatement()) {
-			statement.executeUpdate("INSERT INTO exercise (name) VALUES ('Squat')");
+			statement.executeUpdate("INSERT INTO exercise (name) VALUES ('Zercher Squat')");
 		}
 
 		Database second = Database.open(file);
 
-		try (Connection connection = second.connection();
+		assertEquals(seeded + 1, countExercises(second));
+	}
+
+	private static int countExercises(Database database) throws SQLException {
+		try (Connection connection = database.connection();
 			 Statement statement = connection.createStatement();
 			 ResultSet rs = statement.executeQuery("SELECT COUNT(*) FROM exercise")) {
 			rs.next();
-			assertEquals(1, rs.getInt(1));
+			return rs.getInt(1);
 		}
 	}
 
