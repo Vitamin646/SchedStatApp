@@ -3,12 +3,14 @@ package io.github.vitamin646dev.schedstatapp.util;
 import io.github.vitamin646dev.schedstatapp.controller.CalendarController;
 import io.github.vitamin646dev.schedstatapp.controller.ExercisesController;
 import io.github.vitamin646dev.schedstatapp.controller.HomeController;
+import io.github.vitamin646dev.schedstatapp.controller.LogWorkoutController;
 import io.github.vitamin646dev.schedstatapp.controller.SettingsController;
 import io.github.vitamin646dev.schedstatapp.controller.StatisticsController;
 
 public enum ViewType {
 	HOME(PathBuilder.buildPath("home-view"), HomeController.class, "Home", true),
 	CALENDAR(PathBuilder.buildPath("calendar-view"), CalendarController.class, "Calendar", true),
+	LOG_WORKOUT(PathBuilder.buildPath("log-workout-view"), LogWorkoutController.class, "Log Workout", true),
 	EXERCISES(PathBuilder.buildPath("exercises-view"), ExercisesController.class, "Exercises", true),
 	STATISTICS(PathBuilder.buildPath("statistics-view"), StatisticsController.class, "Statistics", true),
 	SETTINGS(PathBuilder.buildPath("settings-view"), SettingsController.class, "Settings", true);
