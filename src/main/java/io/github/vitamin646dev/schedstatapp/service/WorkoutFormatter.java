@@ -64,7 +64,7 @@ public final class WorkoutFormatter {
 		return set.rpe() == null ? text : text + ", RPE " + formatNumber(set.rpe());
 	}
 
-	private static String formatNumber(double value) {
+	static String formatNumber(double value) {
 		return value == Math.rint(value) ? String.valueOf((long) value) : String.valueOf(value);
 	}
 }

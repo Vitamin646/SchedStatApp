@@ -37,7 +37,7 @@ public class AppContext implements AutoCloseable {
 
 	public AppContext() {
 		controllers.put(NavigationBarController.class, () -> new NavigationBarController(viewManager));
-		controllers.put(HomeController.class, () -> new HomeController(settings));
+		controllers.put(HomeController.class, () -> new HomeController(settings, workoutRepository, backgroundExecutor));
 		controllers.put(CalendarController.class,
 				() -> new CalendarController(workoutRepository, backgroundExecutor, notifications));
 		controllers.put(LogWorkoutController.class, () -> new LogWorkoutController(
